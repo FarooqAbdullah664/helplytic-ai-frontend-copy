@@ -62,16 +62,16 @@ export default function Home() {
               creators, and builders. Ask for help, offer help, track impact, and let AI surface
               smarter matches across the platform.
             </p>
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
               <Link
                 to="/login"
-                className="bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition"
+                className="bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition text-center"
               >
                 Open product demo
               </Link>
               <Link
                 to="/create"
-                className="bg-transparent border border-gray-300 hover:border-gray-500 text-gray-700 text-sm font-medium px-5 py-2.5 rounded-full transition"
+                className="bg-transparent border border-gray-300 hover:border-gray-500 text-gray-700 text-sm font-medium px-5 py-2.5 rounded-full transition text-center"
               >
                 Post a request
               </Link>
@@ -79,21 +79,21 @@ export default function Home() {
           </div>
 
           {/* Stats row */}
-          <div className="grid grid-cols-3 gap-4 mt-10">
-            <div className="bg-gray-100 rounded-xl p-4">
+          <div className="grid grid-cols-3 gap-2 mt-8">
+            <div className="bg-gray-100 rounded-xl p-3">
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Members</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.members > 0 ? `${stats.members}+` : '384+'}</p>
-              <p className="text-xs text-gray-500 mt-1">Students, mentors, and helpers in the loop.</p>
+              <p className="text-xl md:text-3xl font-bold text-gray-900">{stats.members > 0 ? `${stats.members}+` : '384+'}</p>
+              <p className="text-xs text-gray-500 mt-1 hidden sm:block">Students, mentors, and helpers in the loop.</p>
             </div>
-            <div className="bg-gray-100 rounded-xl p-4">
+            <div className="bg-gray-100 rounded-xl p-3">
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Requests</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.requests > 0 ? `${stats.requests}+` : '72+'}</p>
-              <p className="text-xs text-gray-500 mt-1">Support posts shared across learning journeys.</p>
+              <p className="text-xl md:text-3xl font-bold text-gray-900">{stats.requests > 0 ? `${stats.requests}+` : '72+'}</p>
+              <p className="text-xs text-gray-500 mt-1 hidden sm:block">Support posts shared across learning journeys.</p>
             </div>
-            <div className="bg-gray-100 rounded-xl p-4">
+            <div className="bg-gray-100 rounded-xl p-3">
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">Solved</p>
-              <p className="text-3xl font-bold text-gray-900">{stats.solved > 0 ? `${stats.solved}+` : '69+'}</p>
-              <p className="text-xs text-gray-500 mt-1">Problems resolved through fast community action.</p>
+              <p className="text-xl md:text-3xl font-bold text-gray-900">{stats.solved > 0 ? `${stats.solved}+` : '69+'}</p>
+              <p className="text-xs text-gray-500 mt-1 hidden sm:block">Problems resolved through fast community action.</p>
             </div>
           </div>
         </div>
