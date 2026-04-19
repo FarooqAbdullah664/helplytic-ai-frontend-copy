@@ -35,13 +35,10 @@ export default function Dashboard() {
   useEffect(() => {
     Promise.all([
       getNotifications().catch(() => ({ data: [] })),
-      getRequests({ page: 1, author: user?._id }).catch(() => ({ data: { requests: [] } })),
+      getRequests({ page: 1 }).catch(() => ({ data: { requests: [] } })),
     ]).then(([notifRes, reqRes]) => {
       setNotifications(notifRes.data?.slice(0, 5) || []);
-      // Filter to only show current user's requests
-      const allReqs = reqRes.data?.requests || [];
-      const myReqs = allReqs.filter(r => String(r.author?._id || r.author) === String(user?._id));
-      setMyRequests(myReqs.slice(0, 3));
+      setMyRequests(reqRes.data?.requests?.slice(0, 3) || []);
     }).finally(() => setLoading(false));
   }, [user]);
 
@@ -56,9 +53,9 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
 
       {/* Hero Banner */}
-      <div className="mx-6 mt-6 rounded-2xl bg-gray-800 text-white px-10 py-10">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 rounded-2xl bg-gray-800 text-white px-5 md:px-10 py-7 md:py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Dashboard</p>
-        <h1 className="text-4xl font-bold leading-tight mb-2">
+        <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-2">
           Welcome back, {user?.name?.split(' ')[0]}.
         </h1>
         <p className="text-gray-400 text-sm">
@@ -67,7 +64,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats row */}
-      <div className="mx-6 mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {stats.map(s => (
           <div key={s.label} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             <p className="text-3xl font-bold text-gray-900 mb-1">{s.value}</p>
@@ -78,7 +75,7 @@ export default function Dashboard() {
       </div>
 
       {/* Body */}
-      <div className="mx-6 mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
         {/* Left — Recent Requests */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">

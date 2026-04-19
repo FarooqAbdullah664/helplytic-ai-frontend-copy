@@ -26,7 +26,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex items-center justify-center p-4 md:p-6">
       <div className="w-full max-w-4xl flex rounded-2xl overflow-hidden shadow-xl">
 
         {/* Left Panel — Dark Teal */}
@@ -57,7 +57,7 @@ export default function Login() {
         </div>
 
         {/* Right Panel — Light Form */}
-        <div className="w-full md:w-1/2 bg-white p-10 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-white p-6 md:p-10 flex flex-col justify-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-3">Login / Signup</p>
           <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-8">
             Authenticate your<br />community profile

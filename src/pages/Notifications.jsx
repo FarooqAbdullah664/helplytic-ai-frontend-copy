@@ -32,21 +32,30 @@ export default function Notifications() {
 
     // mark all as read after viewing
     markNotificationsRead().catch(() => {});
+
+    // Poll every 30 seconds for new notifications
+    const interval = setInterval(() => {
+      getNotifications()
+        .then(({ data }) => setNotifications(data))
+        .catch(() => {});
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
 
       {/* Hero Banner */}
-      <div className="mx-6 mt-6 rounded-2xl bg-gray-800 text-white px-10 py-10">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 rounded-2xl bg-gray-800 text-white px-5 md:px-10 py-7 md:py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Notifications</p>
-        <h1 className="text-4xl font-bold leading-tight">
-          Stay updated on requests, helpers, and<br />trust signals.
+        <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+          Stay updated on requests, helpers, and trust signals.
         </h1>
       </div>
 
       {/* Notification Feed */}
-      <div className="mx-6 mt-6 pb-10">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 pb-10">
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-2">Live Updates</p>
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Notification feed</h2>

@@ -22,7 +22,7 @@ const AppContent = () => {
   const { user } = useContext(AuthContext);
   return (
     <SocketProvider userId={user?._id}>
-      <div className="min-h-screen bg-gray-50 text-gray-900">
+      <div className="min-h-screen bg-gray-50 text-gray-900 overflow-x-hidden">
         <Navbar />
         <Routes>
           {/* Home for guests, Feed for logged-in users */}

@@ -44,15 +44,15 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
 
       {/* ── HERO SECTION ── */}
-      <div className="mx-6 mt-6 grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-lg">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden shadow-lg">
 
         {/* Left — white panel */}
-        <div className="bg-white text-gray-900 p-10 flex flex-col justify-between">
+        <div className="bg-white text-gray-900 p-6 md:p-10 flex flex-col justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
               SMIT Grand Coding Night 2026
             </p>
-            <h1 className="text-4xl font-bold leading-tight mb-5 text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-5 text-gray-900">
               Find help faster.<br />
               Become help that<br />
               matters.
@@ -99,7 +99,7 @@ export default function Home() {
         </div>
 
         {/* Right — dark teal panel */}
-        <div className="bg-gray-900 text-white p-10 flex flex-col justify-between relative overflow-hidden">
+        <div className="bg-gray-900 text-white p-6 md:p-10 flex flex-col justify-between relative overflow-hidden">
           {/* Decorative circle */}
           <div className="absolute top-6 right-6 w-14 h-14 rounded-full bg-amber-400 opacity-90" />
 
@@ -134,10 +134,10 @@ export default function Home() {
       </div>
 
       {/* ── CORE FLOW SECTION ── */}
-      <div className="mx-6 mt-12">
+      <div className="mx-3 md:mx-6 mt-8 md:mt-12">
         <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-2">Core Flow</p>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-3xl font-bold text-gray-900">From struggling alone to solving together</h2>
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">From struggling alone to solving together</h2>
           <Link
             to="/create"
             className="text-sm font-medium text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-teal-500 hover:text-teal-600 transition whitespace-nowrap ml-4"
@@ -163,10 +163,10 @@ export default function Home() {
       </div>
 
       {/* ── FEATURED REQUESTS ── */}
-      <div className="mx-6 mt-12 pb-12">
+      <div className="mx-3 md:mx-6 mt-8 md:mt-12 pb-12">
         <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-2">Featured Requests</p>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-3xl font-bold text-gray-900">Community problems currently in motion</h2>
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Community problems currently in motion</h2>
           <Link
             to="/"
             className="text-sm font-medium text-gray-600 border border-gray-300 px-4 py-2 rounded-full hover:border-teal-500 hover:text-teal-600 transition whitespace-nowrap ml-4"

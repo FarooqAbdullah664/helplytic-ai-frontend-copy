@@ -73,7 +73,7 @@ export default function RequestDetail() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
 
       {/* Hero Banner */}
-      <div className="mx-6 mt-6 rounded-2xl bg-gray-800 text-white px-10 py-10">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 rounded-2xl bg-gray-800 text-white px-5 md:px-10 py-7 md:py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Request Detail</p>
 
         {/* Badges row */}
@@ -89,12 +89,12 @@ export default function RequestDetail() {
           </span>
         </div>
 
-        <h1 className="text-4xl font-bold leading-tight mb-4">{request.title}</h1>
+        <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-4">{request.title}</h1>
         <p className="text-gray-400 text-sm leading-relaxed">{request.description}</p>
       </div>
 
       {/* Body — two columns */}
-      <div className="mx-6 mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
 
         {/* Left col — AI Summary + Actions */}
         <div className="flex flex-col gap-6">

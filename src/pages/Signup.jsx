@@ -6,6 +6,7 @@ import { signup } from '../services/api';
 export default function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '', location: '', skills: '', interests: '', role: 'both' });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -25,9 +26,8 @@ export default function Signup() {
         interests: form.interests.split(',').map(s => s.trim()).filter(Boolean),
       };
       const { data } = await signup(payload);
-      // Auto-login after signup
-      loginUser(data, data.token);
-      navigate('/onboarding');
+      setSuccess(true);
+      setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');
     } finally {
@@ -36,7 +36,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 flex items-center justify-center p-4 md:p-6">
       <div className="w-full max-w-4xl flex rounded-2xl overflow-hidden shadow-xl">
 
         {/* Left Panel — Dark */}
@@ -67,7 +67,7 @@ export default function Signup() {
         </div>
 
         {/* Right Panel — Light Form */}
-        <div className="w-full md:w-1/2 bg-white p-10 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 bg-white p-6 md:p-10 flex flex-col justify-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-3">Login / Signup</p>
           <h2 className="text-3xl font-bold text-gray-900 leading-tight mb-8">
             Create your<br />community profile
@@ -76,6 +76,11 @@ export default function Signup() {
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-3 rounded-xl mb-5">
               {error}
+            </div>
+          )}
+          {success && (
+            <div className="bg-teal-50 border border-teal-200 text-teal-700 text-sm px-4 py-3 rounded-xl mb-5">
+              Account created! Redirecting to login...
             </div>
           )}
 
@@ -175,7 +180,7 @@ export default function Signup() {
               disabled={loading}
               className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-xl transition disabled:opacity-50 mt-2"
             >
-              {loading ? 'Creating account...' : 'Create account & Sign in'}
+              {loading ? 'Creating account...' : 'Create account'}
             </button>
           </form>
 

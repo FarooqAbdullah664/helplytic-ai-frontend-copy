@@ -124,10 +124,10 @@ export default function CreateRequest() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
 
       {/* Hero Banner */}
-      <div className="mx-6 mt-6 rounded-2xl bg-gray-800 text-white px-10 py-10">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 rounded-2xl bg-gray-800 text-white px-5 md:px-10 py-7 md:py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Create Request</p>
-        <h1 className="text-4xl font-bold leading-tight mb-3">
-          Turn a rough problem into a clear help<br />request.
+        <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-3">
+          Turn a rough problem into a clear help request.
         </h1>
         <p className="text-gray-400 text-sm">
           Use built-in AI suggestions for category, urgency, tags, and a stronger description rewrite.
@@ -135,7 +135,7 @@ export default function CreateRequest() {
       </div>
 
       {/* Body */}
-      <div className="mx-6 mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div className="mx-3 md:mx-6 mt-4 md:mt-6 pb-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
 
         {/* Left — Form */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
