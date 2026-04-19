@@ -1,0 +1,24 @@
+import axios from 'axios';
+const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api' });
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem('helplytics_token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+export const signup = (data) => API.post('/auth/signup', data);
+export const login = (data) => API.post('/auth/login', data);
+export const getRequests = (params) => API.get('/requests', { params });
+export const getRequestById = (id) => API.get(`/requests/${id}`);
+export const createRequest = (data) => API.post('/requests', data);
+export const offerHelp = (id) => API.patch(`/requests/${id}/help`);
+export const solveRequest = (id, data) => API.patch(`/requests/${id}/solve`, data);
+export const getProfile = () => API.get('/users/profile');
+export const updateProfile = (data) => API.patch('/users/profile', data);
+export const getLeaderboard = () => API.get('/users/leaderboard');
+export const getNotifications = () => API.get('/users/notifications');
+export const markNotificationsRead = () => API.patch('/users/notifications/read');
+export const sendMessage = (data) => API.post('/messages', data);
+export const getMessages = (chatId) => API.get(`/messages/${chatId}`);
+export const getAISuggestions = (data) => API.post('/ai/suggest', data);
+export const getUsers = () => API.get('/users');
+export default API;
